@@ -13,8 +13,16 @@ public class AccountService {
     @Autowired
     private AccountRepository repository;
 
+    @Autowired
+    private ReportService reportService;
+
     public List<Account> list() {
         return repository.findAll();
+    }
+
+    public String generateReport(String format) {
+        List<Account> accounts = list();
+        return reportService.exportReport(accounts, format);
     }
 
 }
