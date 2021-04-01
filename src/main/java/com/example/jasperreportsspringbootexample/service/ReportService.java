@@ -25,12 +25,15 @@ public class ReportService {
         try {
             File file = ResourceUtils.getFile("classpath:reports/account/accounts.jrxml");
 
+            File image = ResourceUtils.getFile("classpath:images/dinossaur.png");
+
             JasperDesign jasperDesign;
             JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
             JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(accounts);
 
             Map<String, Object> parameters = new HashMap<>();
             parameters.put("createdBy","Diego Mucheniski");
+            parameters.put("image",image);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
 
             /*

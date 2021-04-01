@@ -1,0 +1,72 @@
+{
+	"info": {
+		"_postman_id": "c1a05fde-0bac-4e62-9c50-33521366ff4f",
+		"name": "jasper-reports-example",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/accounts",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "generate PDF",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/accounts/report/pdf",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounts",
+								"report",
+								"pdf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "generate HTML",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/accounts/report/html",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounts",
+								"report",
+								"html"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

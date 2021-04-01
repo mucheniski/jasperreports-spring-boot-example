@@ -30,6 +30,8 @@
 			<rightPen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
+	<parameter name="createdBy" class="java.lang.String"/>
+	<parameter name="image" class="java.awt.Image"/>
 	<queryString language="SQL">
 		<![CDATA[]]>
 	</queryString>
@@ -51,6 +53,10 @@
 				</textElement>
 				<text><![CDATA[Accounts]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="0" y="0" width="140" height="20" uuid="c33f4864-c843-48f9-8418-f4cdefe0f7a7"/>
+				<textFieldExpression><![CDATA[$P{createdBy}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<columnHeader>
