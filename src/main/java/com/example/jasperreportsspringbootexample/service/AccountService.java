@@ -20,9 +20,19 @@ public class AccountService {
         return repository.findAll();
     }
 
+    public Account findById(Long id) {
+        return repository.findById(id).orElseThrow(() -> new RuntimeException("Not Found") );
+    }
+
     public String generateReport(String format) {
         List<Account> accounts = list();
         return reportService.exportReport(accounts, format);
     }
+
+    public String generateReportById(Long id, String format) {
+        Account account = findById(id);
+        return reportService.exportReportIndividual(account, format);
+    }
+
 
 }

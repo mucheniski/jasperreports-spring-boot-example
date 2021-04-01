@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="accounts" pageWidth="300" pageHeight="842" columnWidth="260" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fdbedd4b-51b4-47d7-8489-0cd747471382">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="createdBy" class="java.lang.String"/>
+	<parameter name="image" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="id" class="java.lang.Long"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="bankname" class="java.lang.String"/>
+	<field name="agency" class="java.lang.String"/>
+	<field name="number" class="java.lang.String"/>
+	<field name="balance" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="-20" y="0" width="300" height="79" uuid="3a112d0a-ba99-49b6-8bb5-780c3c6396f7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Accounts]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="0" width="140" height="20" uuid="c33f4864-c843-48f9-8418-f4cdefe0f7a7"/>
+				<textFieldExpression><![CDATA[$P{createdBy}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="210" y="0" width="50" height="50" uuid="d781b2fd-0fba-4e96-8cd3-d5aac36ae5d7"/>
+				<imageExpression><![CDATA[$P{image}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="20" height="18" uuid="30c0c2d9-60f7-4883-848a-eb867807368d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="845855c0-dd9a-47e4-b143-13a2e7bef6b2"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Id]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="196" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement x="0" y="0" width="20" height="18" uuid="ed8bcfe5-8acc-4292-9da0-7ab6bbd550ff">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="845855c0-dd9a-47e4-b143-13a2e7bef6b2"/>
+				</reportElement>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="40" width="220" height="18" uuid="5a822a56-3eec-4691-a70d-22b8c89121ce">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f95505d4-5ad0-4f0f-b9bc-fb9c2572a24f"/>
+				</reportElement>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="76" width="150" height="20" uuid="2533b735-0e48-485a-ab83-eecdfe1a7392">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="02c867b6-3f9b-425d-829e-8310acf90e79"/>
+				</reportElement>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{bankname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="114" width="50" height="18" uuid="2bc94c79-f5b2-4096-8d7b-4f7b0f02c9bc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="39510b3b-c795-4816-b4f3-c519dd4568a7"/>
+				</reportElement>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{agency}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="141" width="50" height="18" uuid="3e8339c6-fe2a-42ed-8799-29057397d05c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ffb7ea50-4d47-4ac2-8a34-708e90276697"/>
+				</reportElement>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="178" width="64" height="18" uuid="43bf4c9d-dda1-4b69-a7be-64b9b8bfdb31">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cfa7d47a-e54e-47c3-aa17-0e5b8a8b95fc"/>
+				</reportElement>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$F{balance}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="20" width="220" height="18" uuid="b318d3ca-a9cc-40f4-9f5c-66ab2cd99aae">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f95505d4-5ad0-4f0f-b9bc-fb9c2572a24f"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="58" width="150" height="18" uuid="27499e0f-9263-41d9-90d6-94883e68b929">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="02c867b6-3f9b-425d-829e-8310acf90e79"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bankname]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="96" width="50" height="18" uuid="3363e8ee-a6ce-4ae8-be9a-a27739e61877">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="39510b3b-c795-4816-b4f3-c519dd4568a7"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Agency]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="130" width="50" height="18" uuid="e3f80ef8-ec17-4214-b0ee-688ce6bec043">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ffb7ea50-4d47-4ac2-8a34-708e90276697"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="160" width="64" height="18" uuid="fd012c82-2683-4172-b9cd-f4a4b42d6661">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cfa7d47a-e54e-47c3-aa17-0e5b8a8b95fc"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Balance]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

@@ -10,9 +10,8 @@ import org.springframework.util.ResourceUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.lang.reflect.Array;
+import java.util.*;
 
 @Service
 public class ReportService {
@@ -24,8 +23,6 @@ public class ReportService {
 
         try {
             File file = ResourceUtils.getFile("classpath:reports/account/accounts.jrxml");
-
-            // File image = ResourceUtils.getFile("classpath:images/dinossaur.png");
 
             JasperDesign jasperDesign;
             JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
@@ -46,6 +43,45 @@ public class ReportService {
 
             if (reportFormat.equalsIgnoreCase("pdf")) {
                 JasperExportManager.exportReportToPdfFile(jasperPrint,defaultExportReportsPath + "accounts.pdf");
+            }
+
+            return "Success exported at " + defaultExportReportsPath;
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return "Error FileNotFoundException " + e.getMessage();
+
+        } catch (JRException e) {
+            e.printStackTrace();
+            return "Error JRException " + e.getMessage();
+        }
+
+    }
+
+    public String exportReportIndividual(Account account, String reportFormat) {
+
+        try {
+            File file = ResourceUtils.getFile("classpath:reports/account/individualAccount.jrxml");
+
+            JasperDesign jasperDesign;
+            JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+            JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(Arrays.asList(account));
+
+            Map<String, Object> parameters = new HashMap<>();
+            parameters.put("createdBy","Diego Mucheniski");
+            parameters.put("image","classpath:images/dinossaur.png");
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
+
+            /*
+             * JasperExportManager has a exportReportToPdfStream()
+             * */
+
+            if (reportFormat.equalsIgnoreCase("html")) {
+                JasperExportManager.exportReportToHtmlFile(jasperPrint,defaultExportReportsPath + "accountById.html");
+            }
+
+            if (reportFormat.equalsIgnoreCase("pdf")) {
+                JasperExportManager.exportReportToPdfFile(jasperPrint,defaultExportReportsPath + "accountById.pdf");
             }
 
             return "Success exported at " + defaultExportReportsPath;

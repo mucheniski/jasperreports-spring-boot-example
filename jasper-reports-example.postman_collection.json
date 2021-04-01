@@ -27,32 +27,37 @@
 					"response": []
 				},
 				{
-					"name": "generate PDF",
+					"name": "report",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/accounts/report/pdf",
+							"raw": "localhost:8080/accounts/report?format=pdf",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"accounts",
-								"report",
-								"pdf"
+								"report"
+							],
+							"query": [
+								{
+									"key": "format",
+									"value": "pdf"
+								}
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "generate HTML",
+					"name": "report by id",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/accounts/report/html",
+							"raw": "localhost:8080/accounts/report/1?format=pdf",
 							"host": [
 								"localhost"
 							],
@@ -60,7 +65,13 @@
 							"path": [
 								"accounts",
 								"report",
-								"html"
+								"1"
+							],
+							"query": [
+								{
+									"key": "format",
+									"value": "pdf"
+								}
 							]
 						}
 					},
