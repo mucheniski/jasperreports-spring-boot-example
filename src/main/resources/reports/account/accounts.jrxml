@@ -31,7 +31,7 @@
 		</box>
 	</style>
 	<parameter name="createdBy" class="java.lang.String"/>
-	<parameter name="image" class="java.awt.Image"/>
+	<parameter name="image" class="java.lang.String"/>
 	<queryString language="SQL">
 		<![CDATA[]]>
 	</queryString>
@@ -57,6 +57,10 @@
 				<reportElement x="0" y="0" width="140" height="20" uuid="c33f4864-c843-48f9-8418-f4cdefe0f7a7"/>
 				<textFieldExpression><![CDATA[$P{createdBy}]]></textFieldExpression>
 			</textField>
+			<image>
+				<reportElement x="460" y="10" width="50" height="50" uuid="d781b2fd-0fba-4e96-8cd3-d5aac36ae5d7"/>
+				<imageExpression><![CDATA[$P{image}]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<columnHeader>
