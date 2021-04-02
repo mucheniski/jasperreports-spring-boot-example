@@ -63,7 +63,6 @@ public class ReportService {
         try {
             File file = ResourceUtils.getFile("classpath:reports/account/individualAccount.jrxml");
 
-            JasperDesign jasperDesign;
             JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
             JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(Arrays.asList(account));
 
