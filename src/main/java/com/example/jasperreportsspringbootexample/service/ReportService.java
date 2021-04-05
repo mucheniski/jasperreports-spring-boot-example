@@ -45,7 +45,8 @@ public class ReportService {
                 JasperExportManager.exportReportToPdfFile(jasperPrint,defaultExportReportsPath + "accounts.pdf");
             }
 
-            return "Success exported at " + defaultExportReportsPath;
+            byte[] jasperBytes = JasperExportManager.exportReportToPdf(jasperPrint);
+            return Base64.getEncoder().encodeToString(jasperBytes);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -83,7 +84,8 @@ public class ReportService {
                 JasperExportManager.exportReportToPdfFile(jasperPrint,defaultExportReportsPath + "accountById.pdf");
             }
 
-            return "Success exported at " + defaultExportReportsPath;
+            byte[] jasperBytes = JasperExportManager.exportReportToPdf(jasperPrint);
+            return Base64.getEncoder().encodeToString(jasperBytes);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

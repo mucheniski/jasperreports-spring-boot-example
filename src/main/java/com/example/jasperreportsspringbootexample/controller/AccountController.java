@@ -2,6 +2,7 @@ package com.example.jasperreportsspringbootexample.controller;
 
 import com.example.jasperreportsspringbootexample.domain.Account;
 import com.example.jasperreportsspringbootexample.service.AccountService;
+import com.example.jasperreportsspringbootexample.service.Base64Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,8 +13,12 @@ import java.util.List;
 public class AccountController {
 
     public static final String FORMAT_NOT_ALLOWED = "Format not allowed, choose pdf or html please!";
+
     @Autowired
     private AccountService service;
+
+    @Autowired
+    private Base64Service base64Service;
 
     @GetMapping
     public List<Account> list() {
@@ -28,6 +33,11 @@ public class AccountController {
     @GetMapping("/report/{id}")
     public String generateReportindividualPDF(@PathVariable Long id, @RequestParam String format) {
         return service.generateReportById(id, format);
+    }
+
+    @GetMapping("/base64-decode")
+    public void decodeBase64ToFile(@RequestParam String fileName) {
+        base64Service.decodeBase64ToImageAndSaveFile(fileName);
     }
 
 }
