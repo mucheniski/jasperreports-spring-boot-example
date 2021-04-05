@@ -27,6 +27,31 @@
 					"response": []
 				},
 				{
+					"name": "decode-base64-to-pdf",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/accounts/base64-decode?fileName=reportEncodeBase64.txt",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounts",
+								"base64-decode"
+							],
+							"query": [
+								{
+									"key": "fileName",
+									"value": "reportEncodeBase64.txt"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "report",
 					"request": {
 						"method": "GET",
