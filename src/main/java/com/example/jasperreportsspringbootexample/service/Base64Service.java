@@ -16,14 +16,14 @@ public class Base64Service {
     @Value("${default.exportReportsPath}")
     private String defaultExportReportsPath;
 
-    public void decodeBase64ToImageAndSaveFile(String fileName) {
+    public void decodeBase64ToImageAndSaveFile(String fileName, String format) {
         try {
             FileInputStream inputStream = null;
             inputStream = new FileInputStream(defaultExportReportsPath + fileName);
             byte[] bytesTxt = inputStream.readAllBytes();
             byte[] bytes64 = Base64.getDecoder().decode(bytesTxt);
             // Export file
-            FileOutputStream fileOutputStream = new FileOutputStream(defaultExportReportsPath + UUID.randomUUID().toString() + ".pdf");
+            FileOutputStream fileOutputStream = new FileOutputStream(defaultExportReportsPath + UUID.randomUUID().toString() + "." + format);
             fileOutputStream.write(bytes64);
             fileOutputStream.close();
             inputStream.close();

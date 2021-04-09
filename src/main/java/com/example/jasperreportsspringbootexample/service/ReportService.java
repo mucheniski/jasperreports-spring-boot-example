@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.*;
 
 @Service
@@ -85,8 +87,14 @@ public class ReportService {
                 JasperExportManager.exportReportToPdfFile(jasperPrint,defaultExportReportsPath + "accountById.pdf");
             }
 
-            byte[] jasperBytes = JasperExportManager.exportReportToPdf(jasperPrint);
-            return Base64.getEncoder().encodeToString(jasperBytes);
+            byte[] bitmapBytes = convertToBitmap(jasperPrint);
+
+            // Retornar o PDF com encode em base64
+            // byte[] jasperBytes = JasperExportManager.exportReportToPdf(jasperPrint);
+            // return Base64.getEncoder().encodeToString(jasperBytes);
+
+            // Retornar o Bitmap com encode em base64
+            return Base64.getEncoder().encodeToString(bitmapBytes);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -97,6 +105,27 @@ public class ReportService {
             return "Error JRException " + e.getMessage();
         }
 
+    }
+
+    private byte[] convertToBitmap(JasperPrint jasperPrint) {
+        try{
+            Path tempFile = Files.createTempFile("sampleBitmap","bmp");
+            OutputStream ouputStream = new FileOutputStream(tempFile.toFile());
+            JasperPrintManager printManager = JasperPrintManager.getInstance(DefaultJasperReportsContext.getInstance());
+
+            BufferedImage bufferedImage = (BufferedImage) printManager.printPageToImage(jasperPrint, 0,1.6f);
+
+            // Se quiser salvar o arquivo precisa passar um file no lugar de tempFile
+            // File file = new File("caminho\\completo\\nomearquivo.bmp");
+            // ImageIO.write(bufferedImage, "bmp", ouputStream);
+
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ImageIO.write(bufferedImage, "bmp", baos);
+            return baos.toByteArray();
+
+        } catch(Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
     }
 
 }

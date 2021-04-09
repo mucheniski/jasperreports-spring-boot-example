@@ -36,8 +36,8 @@ public class AccountController {
     }
 
     @GetMapping("/base64-decode")
-    public void decodeBase64ToFile(@RequestParam String fileName) {
-        base64Service.decodeBase64ToImageAndSaveFile(fileName);
+    public void decodeBase64ToFile(@RequestParam String fileName, @RequestParam String format) {
+        base64Service.decodeBase64ToImageAndSaveFile(fileName, format);
     }
 
 }
