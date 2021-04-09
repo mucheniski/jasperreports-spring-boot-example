@@ -109,8 +109,6 @@ public class ReportService {
 
     private byte[] convertToBitmap(JasperPrint jasperPrint) {
         try{
-            Path tempFile = Files.createTempFile("sampleBitmap","bmp");
-            OutputStream ouputStream = new FileOutputStream(tempFile.toFile());
             JasperPrintManager printManager = JasperPrintManager.getInstance(DefaultJasperReportsContext.getInstance());
 
             BufferedImage bufferedImage = (BufferedImage) printManager.printPageToImage(jasperPrint, 0,1.6f);
