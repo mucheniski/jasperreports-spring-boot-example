@@ -123,7 +123,7 @@
 				<textElement textAlignment="Left"/>
 				<textFieldExpression><![CDATA[$F{number}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
 				<reportElement x="0" y="178" width="64" height="18" uuid="43bf4c9d-dda1-4b69-a7be-64b9b8bfdb31">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cfa7d47a-e54e-47c3-aa17-0e5b8a8b95fc"/>
 				</reportElement>

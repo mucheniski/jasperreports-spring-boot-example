@@ -70,6 +70,7 @@ public class ReportService {
             Map<String, Object> parameters = new HashMap<>();
             parameters.put("createdBy","Diego Mucheniski");
             parameters.put("image","classpath:images/dinossaur.png");
+            parameters.put("REPORT_LOCALE", new Locale("pt", "BR"));
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
 
             /*
