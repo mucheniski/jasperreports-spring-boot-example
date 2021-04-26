@@ -1,5 +1,6 @@
 package com.example.jasperreportsspringbootexample.domain;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -10,6 +11,7 @@ import java.math.BigDecimal;
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
+@Builder
 public class Account {
 
     @EqualsAndHashCode.Include
