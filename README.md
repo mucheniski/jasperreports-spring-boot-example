@@ -11,4 +11,11 @@ Para Reais deve ser passado o Locale como parâmetro para o report ex:
 parameters.put("REPORT_LOCALE", new Locale("pt", "BR"));
 ~~~
 https://cafetiria.wordpress.com/2016/05/07/como-formatar-campo-como-numero-data-etc-no-jaspersoft-studio/
-![](/img/exemploValorMotetarioJasperReports.png)
+![](/img/exemploValorMotetarioJasperReports.png)  
+
+Configuração de valores monetários  
+ir em textField > Pattern > Selecionas Currency e deixar com ¤#,##0.00;¤-#,##0.00 com duas casas decimais  
+
+Configuração de data  
+no campo deixar new SimpleDateFormat("MM/dd/yyyy").format($F{dataPagamento})
+ir em textField > Pattern > HH:mm:ss
